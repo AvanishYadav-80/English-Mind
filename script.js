@@ -335,3 +335,15 @@ if ('loading' in HTMLImageElement.prototype) {
   });
   lazyImages.forEach(img => imageObserver.observe(img));
 }
+
+/* ============================================
+   OFFER MODAL AUTO-SHOW
+   ============================================ */
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    const offerModal = document.getElementById('offerModal');
+    if (offerModal) {
+      offerModal.classList.add('active');
+    }
+  }, 1000); // 1-second delay so it's not jarring
+});

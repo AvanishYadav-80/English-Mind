@@ -128,5 +128,34 @@
     <div class="footer-bottom"><p>© 2024 English Mind. All rights reserved.</p><p>Website by <a href="https://avanish.dev" target="_blank" rel="noopener" style="color:var(--clr-purple-300);text-decoration:none">Avanish</a></p></div>
   </footer>
   <script src="script.js"></script>
+  <!-- Offer Modal -->
+  <div class="modal-overlay" id="offerModal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close-top" onclick="document.getElementById('offerModal').classList.remove('active')" aria-label="Close modal">✕</button>
+      <div class="modal-header"><h3>🎓 Special Offer — Online Spoken English Classes</h3></div>
+      <div class="modal-body">
+        <div class="offer-banner">
+          <h4><em>Premium Spoken English</em></h4>
+          <p class="offer-subtitle">GET YOUR PERSONAL COACH</p>
+          <div class="offer-box">
+            <div class="offer-pricing">
+              <span class="fee-label">ORIGINAL FEE</span><span class="old-price">₹15,000</span>
+              <span class="offer-label">OFFER PRICE</span><span class="new-price">₹9,999</span>
+              <span class="per-month">PER MONTH</span>
+            </div>
+            <div class="offer-quote">"An expensive deal could be cheaper at the end."</div>
+          </div>
+          <div class="offer-contact">
+            <div class="phone-box"><span class="phone-label">Call To Find Out More</span><span class="phone-number">8005003270</span></div>
+            <div class="website-box"><strong>English Mind</strong><span>www.englishmind.co.in</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <a href="contact.html#enquiry" class="btn btn-primary" onclick="document.getElementById('offerModal').classList.remove('active')">Enquire Now</a>
+        <button class="btn btn-outline" onclick="document.getElementById('offerModal').classList.remove('active')">Close</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
