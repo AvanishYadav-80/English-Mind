@@ -11,7 +11,12 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
-  <div class="bg-orbs" aria-hidden="true"></div>
+  <!-- Announcement Strip -->
+  <div class="announcement-strip" id="announcementStrip" role="banner">
+    🎉 New batch starting March 2026 — <strong>Early Bird: ₹2,000/month</strong> | Limited seats!
+    <button class="close-strip" onclick="document.getElementById('announcementStrip').style.display='none'"
+      aria-label="Close announcement">✕</button>
+  </div>
   <div class="topbar">
     <a href="tel:+919838589588"><span class="icon"><i class="fa-solid fa-phone"></i></span> +91-98385 89588</a>
     <a href="mailto:contact@englishmind.co.in"><span class="icon"><i class="fa-regular fa-envelope"></i></span> contact@englishmind.co.in</a>
@@ -82,7 +87,7 @@
     <section class="section" aria-labelledby="vm-heading">
       <div class="section-inner">
         <div style="text-align:center;margin-bottom:var(--sp-6)"><div class="section-label" style="justify-content:center">Our Foundation</div><h2 class="section-title" id="vm-heading">Vision & <em>Mission</em></h2></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);">
+        <div class="vm-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:var(--sp-4);">
           <article class="glass-card reveal" style="background:linear-gradient(135deg,rgba(124,58,237,0.12),rgba(124,58,237,0.04));border-color:rgba(124,58,237,0.3)">
             <div style="font-size:3rem;margin-bottom:var(--sp-2)">🎯</div>
             <h3 style="font-family:var(--font-serif);font-size:1.5rem;color:var(--clr-white);margin-bottom:var(--sp-2)">Our Vision</h3>
