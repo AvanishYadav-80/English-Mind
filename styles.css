@@ -77,7 +77,8 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
+  /* clip doesn't break position: sticky like hidden does */
 }
 
 body {
@@ -86,7 +87,6 @@ body {
   color: var(--clr-text);
   line-height: 1.6;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 /* Accessibility: focus-visible */
@@ -196,11 +196,9 @@ body {
 
 /* === NAVBAR === */
 .page-header {
-  position: fixed !important;
+  position: sticky !important;
   top: 0;
-  width: 100%;
-  z-index: 1000;
-  /* Higher z-index to stay above all content */
+  z-index: 100;
 }
 
 .navbar {
@@ -1322,8 +1320,10 @@ body {
     top: 0;
     right: 0;
     transform: translateX(100%);
-    z-index: 200;
-    width: min(320px, 90vw);
+    z-index: 9999;
+    /* Max priority */
+    width: min(300px, 85vw);
+    height: 100vh;
     height: 100dvh;
     background: var(--clr-deep);
     border-left: 1px solid var(--glass-border);
@@ -1332,8 +1332,28 @@ body {
     text-align: center;
     padding: 5rem var(--sp-3) var(--sp-4);
     gap: 0.25rem;
-    transition: transform var(--tr-base);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     overflow-y: auto;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(8, 4, 20, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+  }
+
+  .nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
   }
 
   .close-sidebar {
@@ -1441,7 +1461,6 @@ body {
 
   html,
   body {
-    overflow-x: hidden !important;
     width: 100% !important;
     position: relative;
   }
@@ -1569,6 +1588,8 @@ body {
   gap: var(--sp-1);
   margin-top: var(--sp-4);
 }
+
+.accordion-item {}
 
 .accordion-header {
   width: 100%;
